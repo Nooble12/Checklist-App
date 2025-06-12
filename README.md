@@ -7,5 +7,5 @@ A simple WIP checklist app for C# WPF.
 
 # How To Run
 ### Clone The Repository
-git clone https://github.com/Nooble12/Checklist-App.git
+git clone https://github.com/Nooble12/Checklist-App.git  
 Build and run the application.
