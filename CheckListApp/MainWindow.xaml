@@ -1,0 +1,44 @@
+﻿<Window x:Class="CheckListApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckListApp"
+        mc:Ignorable="d"
+        Background="DimGray"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Menu>
+                    <MenuItem Header="File">
+                        <MenuItem Header="Save File" Click="SaveFile_Click"></MenuItem>
+                        <MenuItem Header="Load File" Click="LoadFile_Click"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Options">
+                        <MenuItem Header="Add Task" Click="AddTask_Click"></MenuItem>
+                        <MenuItem Header="Clear All Tasks" Click="ClearAllTask_Click"></MenuItem>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+            <ListBox Margin="10" Name="TaskListBox" Background="Gray">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="{Binding TaskName}" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                            <CheckBox Grid.Column="1" Name="TaskCheckBox"  IsChecked="{Binding IsCompleted}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Checked="TaskCheckBox_Checked"/>
+                            <Button Content="X" Click="DeleteTaskButton_Click" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="20"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </StackPanel>
+    </Grid>
+</Window>
