@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Media;
 using System.Xml.Serialization;
 
@@ -7,11 +6,6 @@ namespace CheckListApp.Classes
 {
     public class TaskItem : INotifyPropertyChanged
     {
-        [XmlElement("TaskName")]
-        public string TaskName {get; set;}
-
-        [XmlElement("FinalGoalValue")]
-        public ushort FinalGoalValue { get; set; } = 0;
 
         [XmlElement("IsGoalActive")]
         public bool IsGoalActive;
@@ -25,6 +19,37 @@ namespace CheckListApp.Classes
         public TaskItem()
         {
 
+        }
+
+        private ushort _finalGoalValue = 0;
+        [XmlElement("FinalGoalValue")]
+        public ushort FinalGoalValue 
+        {
+            get => _finalGoalValue;
+            set
+            {
+                if (_finalGoalValue != value)
+                {
+                    _finalGoalValue = value;
+                }
+                OnPropertyChanged(nameof(FinalGoalValue));
+            }
+        }
+
+        private string _taskName = "Place_Holder_Name";
+        [XmlElement("TaskName")]
+        public string TaskName 
+        {
+            get => _taskName;
+            set
+            {
+                if (!_taskName.Equals(value))
+                {
+                    _taskName = value;
+                }
+
+                OnPropertyChanged(nameof(TaskName));
+            }
         }
 
         private bool _isCompleted;

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CheckListApp"
         mc:Ignorable="d"
         Background="Gray"
-        Title="LoadFileWindow" Height="300" Width="400">
+        Title="Load File" Height="300" Width="400">
     <Grid>
         <ListBox x:Name="FileListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         </ListBox>

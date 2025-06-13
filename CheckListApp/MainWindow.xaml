@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CheckListApp"
         mc:Ignorable="d"
         Background="DimGray"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Checklist App v1.0.0" Height="450" Width="800">
     <Grid>
         <StackPanel>
             <Grid>
@@ -32,6 +32,7 @@
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
 
                             <Label Content="{Binding TaskName}" Foreground="{Binding ForegroundTextColor}" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
@@ -41,9 +42,10 @@
                                 <Label Name="finalGoalValue" Content="{Binding FinalGoalValue}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding ForegroundTextColor}"></Label>
                             </TabPanel>
                             <CheckBox Grid.Column="4" Name="TaskCheckBox" IsChecked="{Binding IsCompleted, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-                            <Button Content="X" Click="DeleteTaskButton_Click" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="20"/>
+                            <Button Content="X" Click="DeleteTaskButton_Click" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="20"/>
                             <Button Name="AddButton" Content="+" Click="AddButton_Click" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="20"></Button>
                             <Button Name="SubtractButton" Content ="-" Click="SubtractButton_Click" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="20"></Button>
+                            <Button Name="EditButton" Click="EditButton_Click" Content="Edit" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Background="Transparent" Foreground="White" BorderThickness="0"></Button>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

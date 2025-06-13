@@ -118,4 +118,18 @@ public partial class MainWindow : Window
             }
         }
     }
+
+    private void EditButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is Button editButton)
+        {
+            var instance = editButton.DataContext;
+            switch (instance)
+            {
+                case TaskItem item:
+                    CreateTaskDialogBox(item);
+                break;
+            }
+        }
+    }
 }
