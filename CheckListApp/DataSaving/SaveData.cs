@@ -28,7 +28,7 @@ namespace CheckListApp.DataSaving
         public void Save(ObservableCollection<TaskItem> inCollection, string filePath)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(ObservableCollection<TaskItem>));
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+            using (FileStream fileStream = new FileStream(filePath.Trim(), FileMode.Create))
             {
                 xmlSerializer.Serialize(fileStream, inCollection);
             }

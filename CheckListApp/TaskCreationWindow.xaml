@@ -8,7 +8,17 @@
         Background="Gray"
         Title="TaskCreationWindow" Height="300" Width="400">
     <Grid>
+        <TabPanel Name="GoalTabPanel" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+            <Label Content="0" Foreground="White" FontSize="20"></Label>
+            <Label Content="/" Foreground="White" FontSize="20"></Label>
+            <TextBox Text="1" Name="finalGoalTextBox" TextChanged="FinalGoalTextBox_TextChanged" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="Transparent" Foreground="GreenYellow" BorderThickness="0"></TextBox>
+        </TabPanel>
+        <Label Name="ErrorLabel" Content="Error Here" Visibility="Hidden" FontSize="20" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 140, 0,0"></Label>
         <TextBox Name= "InputTextBox" Text="Enter Task Name" FontSize="20" Foreground="White" Background="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="InputBox_TextChanged"></TextBox>
         <Button Name="ProceedButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Accept" Click="ProceedButton_Click" FontSize="10"  Width="199" Background="AliceBlue"></Button>
+        <TabPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,60,0,0">
+            <Label Content="Goal Value" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize ="10" Foreground="White"></Label>
+            <CheckBox Name="GoalCheckBox" Checked="GoalCheckBox_Checked" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        </TabPanel>
     </Grid>
 </Window>

@@ -1,6 +1,5 @@
 ﻿using CheckListApp.Classes;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +20,7 @@ public partial class MainWindow : Window
 
     private void AddTask_Click(object sender, RoutedEventArgs e)
     {
-        TaskItem task = new TaskItem("N/A");
+        TaskItem task = new TaskItem("N/A", 0);
         CreateTaskDialogBox(task);
         TaskList.Add(task);
     }
@@ -88,17 +87,34 @@ public partial class MainWindow : Window
             }
         }
     }
-    private void TaskCheckBox_Checked(object sender, RoutedEventArgs e)
+
+    private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        if (sender is CheckBox checkBox)
+        if (sender is Button addButton)
         {
-            Debug.WriteLine("Checked");
-            var instance = checkBox.DataContext;
+            var instance = addButton.DataContext;
             switch (instance)
             {
                 case TaskItem item:
-                    item.IsCompleted =! item.IsCompleted;
+                    item.CurrentGoalValue += 1;
                 break;
+            }
+        }
+    }
+
+    private void SubtractButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is Button subtractButton)
+        {
+            var instance = subtractButton.DataContext;
+            switch (instance)
+            {
+                case TaskItem item:
+                    if (item.CurrentGoalValue > 0)
+                    {
+                        item.CurrentGoalValue--;
+                    }
+                    break;
             }
         }
     }

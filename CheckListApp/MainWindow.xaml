@@ -27,13 +27,23 @@
                         <Grid Margin="5" VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="{Binding TaskName}" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
-                            <CheckBox Grid.Column="1" Name="TaskCheckBox"  IsChecked="{Binding IsCompleted}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Checked="TaskCheckBox_Checked"/>
-                            <Button Content="X" Click="DeleteTaskButton_Click" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="20"/>
+                            <Label Content="{Binding TaskName}" Foreground="{Binding ForegroundTextColor}" Grid.Column="0" VerticalAlignment="Center" Margin="5,0"/>
+                            <TabPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Label Name="currentGoalValue" Content="{Binding CurrentGoalValue}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding ForegroundTextColor}"></Label>
+                                <Label Content="/" Foreground="White"></Label>
+                                <Label Name="finalGoalValue" Content="{Binding FinalGoalValue}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{Binding ForegroundTextColor}"></Label>
+                            </TabPanel>
+                            <CheckBox Grid.Column="4" Name="TaskCheckBox" IsChecked="{Binding IsCompleted, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                            <Button Content="X" Click="DeleteTaskButton_Click" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="Red" BorderThickness="0" FontSize="20"/>
+                            <Button Name="AddButton" Content="+" Click="AddButton_Click" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="20"></Button>
+                            <Button Name="SubtractButton" Content ="-" Click="SubtractButton_Click" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="20"></Button>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
